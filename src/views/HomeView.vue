@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <ProductCarrousel/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+//import Home from '@/components/Home.vue'
+import ProductCarrousel from '@/components/ProductCarrousel.vue'
+//import Products from './ProductsView.vue'  Products,Home,
 
 export default {
+  // eslint-disable-next-line
   name: 'HomeView',
   components: {
-    HelloWorld
+    ProductCarrousel
+
+  },
+  methods: {
+    handleLoginSuccess(isValid) {
+      this.isCredentialsValid = isValid;
+    },
+
   }
 }
 </script>
