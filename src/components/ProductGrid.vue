@@ -23,14 +23,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
   }
   
   .tituloGrid {
     color: #EA9A51;
     font-size: 28px;
     text-align: center;
-    margin: 10px 0;
+    margin: 8px 0;
   }
   
   /* Adicione media queries para tornar o t�tulo responsivo */
