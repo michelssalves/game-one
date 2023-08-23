@@ -1,70 +1,48 @@
 <template>
-  <div class="container">
-  <Carousel :autoplay="4000" :wrap-around="true">
-    <Slide v-for="(slide, index) in slides" :key="index">
-      <div class="slide-content">
-        <img :src="slide.imagem" alt="">
-        <p class="legenda">{{ slide.texto }}</p>
-      </div>
-    </Slide>
-  </Carousel>
-</div>
+    <v-carousel :continuous="false" :show-arrows="false" height="300" cycle :interval="3000">
+      <v-carousel-item v-for="(slide, i) in slides" :key="i">
+        <v-sheet>
+          <div class="d-flex fill-height justify-center align-center">
+              <img :src="slide.imagem" class="carousel-image">
+          </div>
+        </v-sheet>
+      </v-carousel-item>
+    </v-carousel>
 </template>
-
 <script>
-import { defineComponent } from 'vue';
-import { Carousel, Slide } from 'vue3-carousel';
-
-import 'vue3-carousel/dist/carousel.css';
-
-export default defineComponent({
-  name: 'AutoplayComponente',
-  components: {
-    Carousel,
-    Slide,
-  },
-  data() {
-    return {
-      slides: [
+  export default {
+    data () {
+      return {
+        slides: [
         { imagem: '01.jpg', texto: 'Seja um rei do Crime' },
         { imagem: '02.jpg', texto: 'Brilhe no modo carreira' },
-        { imagem: '03.jpg', texto: 'Ta afim de passar raiva, compre esse jogo!'},
+        { imagem: '03.jpg', texto: 'Ta afim de passar raiva, compre esse jogo!' },
         { imagem: '04.jpg', texto: 'A delicinha de todos os tempos, sem arrependimentos!' },
         // Adicione mais objetos com caminhos para suas imagens e legendas
       ],
-    };
-  },
-});
+      }
+    },
+  }
 </script>
-
 <style scoped>
-/* Estilos para tornar o carrossel responsivo */
 
-.slide-content {
-  background-color:#282A29;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top: 50px;
-  padding: 10px;
-  margin-bottom: 10px;
-  height: auto;
+.carousel-image {
+  min-width: 100%; /* Ajusta a largura da imagem para o tamanho do slide */
+  min-height: 100%;
+  object-fit:fill; /* Ajusta o modo de exibição da imagem */
 }
-.slide-image {
-  width: 80%; /* Ajuste a largura da imagem conforme necessário */
-  max-width: 600px; /* Defina um valor máximo para a largura da imagem */
-  height: auto; /* Mantenha a proporção da imagem */
+.carousel-container {
+  height: 300px; /* Define uma altura padrão para o carrossel */
 }
 
-.legenda {
-  color: #EA9A51;
-  margin-top: 10px;
-  cursor: pointer;
-  max-height: 3em; /* Defina a altura máxima da legenda em número de linhas */
-  overflow: hidden; /* Esconda o conteúdo excedente */
-  text-overflow: ellipsis; /* Adicione reticências (...) caso o texto seja cortado */
-  white-space: normal; /* Permite a quebra de linha no texto */
+@media (max-width: 600px) {
+  .v-carousel {
+    height: 100vh; /* Define a altura do carrossel para 100% da tela em dispositivos móveis */
+  }
+
+
+  .carousel-container {
+    height: 100vh; /* Define a altura do carrossel para 100% da tela em dispositivos móveis */
+  }
 }
 </style>

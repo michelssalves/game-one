@@ -13,10 +13,11 @@
   <script>
   import ProductGrid from '../components/ProductGrid.vue';
   import Carrousel from '../components/ProductCarrousel.vue';
+
   export default {
     components: {
       ProductGrid,
-      Carrousel
+      Carrousel,
     },
     data() {
       return {
